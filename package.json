@@ -1,0 +1,19 @@
+{
+  "name": "restapi",
+  "version": "1.0.0",
+  "description": "rest API example",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.12",
+    "morgan": "^1.9.1",
+    "npm": "^6.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lpk",
+  "license": "ISC"
+}
