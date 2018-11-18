@@ -3,12 +3,20 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const ThisSchema = new Schema({
-  type: String,
-  color: String,
-  size: String,
-  mass: Number,
-  name: String
+
+const AnswerSchema = new Schema({
+  text: String,
+  createdAt: {type: Date, default: Date.now},
+  updatedAt: {type: Date, default: Date.now},
+  votes: {type: Number, default: 0}
 });
 
-module.exports.ThisSchema = ThisSchema;
+const QuestionSchema = new Schema({
+  text: String,
+  cratedAt: {type: Date, default: Date.now},
+  answers: [AnswerSchema]
+});
+
+const Question = mongoose.model("Question", QuestionSchema);
+
+module.exports.Question = Question;
