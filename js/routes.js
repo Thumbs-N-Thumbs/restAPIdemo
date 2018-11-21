@@ -2,6 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
+const Question = require('./js/models').Question;
 
 // GET /questions
 router.get("/", function(req, res){
