@@ -6,9 +6,8 @@ const Schema = mongoose.Schema;
 
 const sortAnswers = (a,b) => {
   if (a.votes === b.votes) {
-      return b.updatedAt > a.updatedAt;
-    };
-  }else {
+    return b.updatedAt > a.updatedAt;
+  } else {
     return b.votes - a.votes;
   }
 };
@@ -23,7 +22,7 @@ const AnswerSchema = new Schema({
 AnswerSchema.method('update', function(updates, callback) {
   Object.assign(this, updates, {updatedAt: new Date()});
   this.parent.save(callback);
-)};
+});
 
 AnswerSchema.method('vote', function(vote, callback){
   if (vote === 'up') {

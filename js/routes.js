@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const Question = require('./js/models').Question;
+const Question = require('./models').Question;
 
 router.param('qid', function(req, res, next, id){
   Question.findById(id, function(err, doc) {
@@ -29,7 +29,7 @@ router.param('aid', function(req, res, next, id){
 
 // GET /questions
 router.get("/", function(req, res, next){
-  Question.find.({})
+  Question.find({})
     .sort({createdAt: -1})
     .exec(function(err, questions){
       if (err) return next(err);
