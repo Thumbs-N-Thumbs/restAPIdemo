@@ -82,9 +82,9 @@ router.delete("/:qid/answers/:aid", function(req, res){
 
 // POST /questions/:id/answers/:id/:up
 // POST /questions/:id/answers/:id/:down
-router.post("/:qid/answers/:aid/:vote",
+router.post("/:qid/answers/:aid/vote-:dir",
   function(req, res, next){
-    if (req.params.vote.search(/^(up|down)$/) === -1) {
+    if (req.params.dir.search(/^(up|down)$/) === -1) {
       const err = new Error("Invalid Vote String (Must be 'up' or 'down')");
       err.status = 404;
       next(err);
@@ -93,7 +93,7 @@ router.post("/:qid/answers/:aid/:vote",
       next();
     }
   },
-  function(req, res){
+  function(req, res, next){
     req.answer.vote(req.vote, function(err, question) {
       if (err) return next(err);
       res.json(question);
