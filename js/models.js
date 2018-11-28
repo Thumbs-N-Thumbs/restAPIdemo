@@ -35,7 +35,7 @@ AnswerSchema.method('vote', function(vote, callback){
 
 const QuestionSchema = new Schema({
   text: String,
-  cratedAt: {type: Date, default: Date.now},
+  createdAt: {type: Date, default: Date.now},
   answers: [AnswerSchema]
 });
 
